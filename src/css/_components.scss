@@ -1,0 +1,39 @@
+@use 'sass:color';
+
+@use 'base';
+
+//Nästlar nav
+nav { 
+  display: flex;
+  gap: 1.8rem;
+
+a {
+  color: base.$color-text;
+  text-decoration: none;
+  font-size: 1.1rem;
+  
+&:hover {
+  text-decoration: underline;
+  color: color.scale(base.$color-text, $lightness: 20%); //color functions lighten
+ 
+}
+
+&.active {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  font-weight: bold;
+}
+}
+}
+
+.hamburger {
+  display: none; /* Dold som standard på desktop */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: base.$color-text;
+  margin-left: auto;
+}
+
+

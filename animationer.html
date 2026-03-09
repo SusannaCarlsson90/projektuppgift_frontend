@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Laboration 4 - Animationer</title>
+    
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="alternate icon" type="image/x-icon" href="images/favicon.ico">
+
+    <link rel="stylesheet" href="/src/css/main.scss">
+  </head>
+<body>
+  <header>
+    <div>
+      <a href="index.html">
+        <img src="images/logga.svg" alt="Sanna Carlsson logga" class="min-logga">
+      </a>
+    </div>
+    
+    <button class="hamburger" id="hamburger" aria-label="Öppna navigation">
+      ☰
+    </button>
+    
+    <nav id="nav-meny">
+      <a href="/index.html">Hem</a>
+      <a href="/sass.html">SASS</a>
+      <a href="/animationer.html" class="active">Animationer</a>
+      <a href="/diagram.html">Diagram</a>
+      <a href="/karta.html">Karta</a>
+    </nav>
+  </header>
+
+
+<main>
+  <section class="picture-test">
+    <figure class="foto">
+      <img src="/midsommar.jpeg" alt="Susanna, Marcus och Nico firar midsommar">
+      <figcaption>
+        <h3>Midsommar</h3> <button class="btn-read-more">Läs mer</button>
+      </figcaption>
+    </figure>
+  
+    <figure class="foto">
+      <img src="/nicolycklig.jpg" alt="Nico snart ett år väldigt glad sittandes på golvet">
+      <figcaption>
+        <h3>Nico glad</h3> <button class="btn-read-more">Läs mer</button>
+      </figcaption>
+    </figure>
+  
+    <figure class="foto">
+      <img src="/nicopulka2.jpg" alt="Nico åker pulka och är väldigt glad">
+      <figcaption>
+        <h3>Nico pulka</h3> <button class="btn-read-more">Läs mer</button>
+      </figcaption>
+    </figure>
+  
+    </section>
+
+    <picture class="minion">
+      <source srcset="minion.jpg?as=webp" type="image/webp">
+      <img src="/minion.jpg" alt="Minion">
+    </picture>
+
+    <button class="btn-fun">Konfetti</button>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script> <!--Länk till js-fil som hämtar instruktioner för hur man gör konfetti, anropas i js sedan-->
+  
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
+
