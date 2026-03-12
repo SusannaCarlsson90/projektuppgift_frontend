@@ -24,10 +24,30 @@ async function loadData(query) {
 
     //Lagra globalt
     console.table(allDesserts);
-    //displayDesserts(allDesserts);
+
+    displayDesserts(allDesserts);
   } catch (error) {
     console.error("Fel: " + error);
   }
 }
 
-loadData("brownies"); //Testsökord
+loadData("cookies"); //Testsökord
+
+const searchBtn = document.getElementById("searchBtn");
+const inputText = document.getElementById("recipeSearch");
+const recipeHome = document.getElementById("recipeHome");
+
+function displayDesserts(recipes) {
+  //Funktion som skriver ut recepten till min index.html
+  recipeHome.innerHTML = ""; //Tömmer sidan på gamla recept innan nya ritas ut;
+  recipes.forEach((recipe) => {
+    const recipeCard = `
+    <div class="recipeCard">
+      <h3>${recipe.title}</h3>
+      <img src="${recipe.image}" alt="${recipe.title}">
+
+    </div>
+    `;
+    recipeHome.innerHTML += recipeCard;
+  });
+}
