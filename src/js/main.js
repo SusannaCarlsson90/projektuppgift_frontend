@@ -31,8 +31,6 @@ async function loadData(query) {
   }
 }
 
-loadData("cookies"); //Testsökord
-
 const searchBtn = document.getElementById("searchBtn");
 const inputText = document.getElementById("recipeSearch");
 const recipeHome = document.getElementById("recipeHome");
@@ -51,3 +49,24 @@ function displayDesserts(recipes) {
     recipeHome.innerHTML += recipeCard;
   });
 }
+
+searchBtn.addEventListener("click", () => {
+  const query = inputText.value;
+
+  if (query !== "") {
+    loadData(query);
+  } else {
+    alert("Du måste skriva något att söka efter");
+  }
+});
+
+inputText.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    const query = inputText.value;
+    if (query !== "") {
+      loadData(query);
+    } else {
+      alert("Du måste skriva något att söka efter");
+    }
+  }
+});
