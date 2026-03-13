@@ -21,16 +21,18 @@ let allDesserts = []; //Skapar variabel för att lagra alla desserter från API 
 
 async function loadData(query) {
   //Funktion som heter data i ett JSON-format som görs om till ett JavaScript objekt
-  const apiKey = "39499d580b344dc5bafd2e88b22e6afb";
-  const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${query}&number=50`; //Min URL där jag vill ha sökord från användaren och hämta 50 resultat i taget.
+  const apiKey = "9d96e24944c74de4a2514d8f5049c38c";
+  const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${query}&number=50&addRecipeInformation=true`; //Min URL där jag vill ha sökord från användaren och hämta 50 resultat i taget.
 
   try {
     const response = await fetch(url);
     const data = await response.json(); //Packar upp "paketet" från servern
     allDesserts = data.results; //Sparar receptlistan i min globala variabel
 
-    //Lagra globalt
-    console.table(allDesserts);
+    // Sortering bokstavsordning a-ö
+    allDesserts.sort((a, b) => {
+      return a.title.localeCompare(b.title);
+    });
 
     displayDesserts(allDesserts);
   } catch (error) {
@@ -59,9 +61,13 @@ function displayDesserts(recipes) {
     //för varje recept gör detta:
     const recipeCard = `
     <div class="recipeCard">  
-      <h3>${recipe.title}</h3>
       <img src="${recipe.image}" alt="${recipe.title}">
-
+      <div class="card-body">
+        <h3>${recipe.title}</h3>
+        <a href="${recipe.sourceUrl}" target="_blank" class="recipe-btn"> 
+          Visa recept
+        </a>
+      </div>
     </div>
     `;
     recipeHome.innerHTML += recipeCard;

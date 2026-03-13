@@ -13,14 +13,14 @@
 }
 
 .hero {
-  background-image: url('/coffeebeans.jpg');
-  height: 60vh;           
+  background-image: url('/macarons.jpg');
+  height: 80vh;           
   background-size: cover;  
   background-position: center; 
   display: flex;
   align-items: center;     /* Centrerar texten vertikalt */
   justify-content: center; /* Centrerar texten horisontellt */
-  color: base.$color-main;
+  color: base.$color-text;
   text-align: center;
 }
 

@@ -3,15 +3,6 @@
 @use 'animations';
 
 
-//Inheritance mall för kort 
-%card-style {
-  background-color: base.$color-main;
-  border-radius: 12px;
-  overflow: hidden; 
-  display: flex;
-  flex-direction: column;
-}
-
 //Inheritance mall för knappar
 
 %button-style {
@@ -30,97 +21,27 @@
     padding: 1rem;
   }
 
-.info {
-  @extend %card-style; //Tar stylingen för kortet -inheritance
-  margin: 0;
- 
-img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  @include base.corner-style(false); //Boolean från if/else sats
-
+  #recipeHome {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); //3 kolumner desktop vy
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto; //Centrerar grid
+    text-align: center;
   }
 
-  figcaption {
-    padding: 1.5rem;
-    text-align: center;
+.recipeCard img {
+@include base.standard-image();
 
-    h3 {
-margin-top: 0;
-color: base.$color-text;
-}
-}
-}
-
-.picture-test {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 3rem;
-  padding: 1rem;
-}
-
-.foto {
-  @extend %card-style; //Tar stylingen för kortet -inheritance
-  margin: 0;
   
-  img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    @include base.corner-style(true); //Boolean från if/else sats
-    transition: transform 1s ease-in-out; //Transition på 1 sekund
-  }
-
-  &:hover img {
-    transform: scale(1.18) //Vid hoover zoomas bilden in
+//&:hover {
    
-    
-  }
-  figcaption {
-    padding: 1.5rem;
-    text-align: center;
-  }
-
-    h3 {
-margin-top: 0;
-color: base.$color-text;
-}
-}
-
-.minion img {
-@include base.standard-image;
-animation-name: photoMove; //infogar animationen skapad under animations.scss
-animation-duration: 5s; //längd den håller på
-animation-iteration-count: infinite; //vill ha den hoppandes förevigt
-}
-
-.btn-fun {
-  @extend %button-style; //Stylingen för knappar - inheritance
-  margin: 1rem auto; //centrerar knapp
-  @include base.corner-style(false); //Boolean från if/else sats
-  width: 70%;
-  height: 15rem;
-  display: block;
-  margin-top: 3rem;
-  background-color: #f093fb;
-  color: white;
-  font-size: 6rem;
-}
+} 
 
 
-.btn-read-more {
-  @extend %button-style; //Stylingen för knappar - inheritance
-  background-color: base.$color-accent;
-  color: base.$color-dark-text;
-  margin: 1rem auto; //centrerar knapp
-  @include base.corner-style(true); //Boolean från if/else sats
-  transition: background-color 0.3s ease;
 
-  &:hover {
-    background-color: color.scale(base.$color-accent, $lightness: -15%); //Lägger till color functions "darken"
-} }
+
 
 header {
   background-color: base.$color-header;
@@ -130,29 +51,7 @@ header {
   align-items: center;
 }
 
-.coffee-image {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  margin-top: 2rem;
-  
 
-  img {
-    @include base.standard-image;
-    }
-  }
-
-    .sass-image {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      margin-top: 2rem;
-      
-    
-      img {
-        @include base.standard-image;
-        }
-      }
 
 footer {
   padding: 1.89rem 2.5rem;
@@ -173,15 +72,8 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .info-boxes {
-    display: flex;
-    flex-direction: column;
-  }
-  .info img {
-    height: auto;
-    object-fit: cover;
-  }
 }
+ 
 
 @media (max-width: 768px) {
   
@@ -217,38 +109,6 @@ footer {
     
   }
 
-  .coffee-image {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-  .info-boxes{
-    display: grid;
-    grid-template-columns: 1fr; // 1 kolumn
-   
-  }
-
-  .picture-test {
-    display: grid;
-    grid-template-columns: 1fr; 
-    gap: 2rem;
-    padding: 1rem; 
-    justify-items: center;
-    ;
-
-    img {
-      height: auto;
-      width: 200px;
-      display: block;
-      
-    }
-  
-}
-
-  .btn-fun {
-    font-size: 3rem;
-  }
 
   /* Footer staplas */
   footer {
@@ -261,3 +121,4 @@ footer {
     width: 12rem;
   }
 }
+;

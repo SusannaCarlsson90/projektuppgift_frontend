@@ -2,6 +2,8 @@
 
 @use 'base';
 
+@use 'layout';
+
 //Nästlar nav
 nav { 
   display: flex;
@@ -34,6 +36,16 @@ a {
   cursor: pointer;
   color: base.$color-text;
   margin-left: auto;
+}
+
+.recipe-btn {
+  @include base.button-style;
+  text-decoration: none;
+  display: inline-block;
+  background-color: base.$color-accent;
+  color: base.$color-text;
+
+
 }
 
 
