@@ -8,6 +8,9 @@
 nav { 
   display: flex;
   gap: 1.8rem;
+ 
+  
+  
 
 a {
   color: base.$color-text;
@@ -38,14 +41,27 @@ a {
   margin-left: auto;
 }
 
+
 .recipe-btn {
   @include base.button-style;
   text-decoration: none;
   display: inline-block;
-  background-color: base.$color-accent;
+  background-color: base.$color-Btn;
   color: base.$color-text;
+  font-weight: normal;
+  
+  &:hover {
+    background-color: darken(base.$color-Btn, 10%);
+  }
+}
 
-
+#searchBtn {
+  @include base.button-style;
+  text-decoration: none;
+  display: inline-block;
+  background-color: base.$color-Btn;
+  color: base.$color-text;
+  background-color: darken(base.$color-Btn, 10%);
 }
 
 

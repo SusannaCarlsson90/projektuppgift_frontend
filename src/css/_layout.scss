@@ -2,7 +2,14 @@
 @use 'base';
 @use 'animations';
 
-
+.hamburger {
+  display: none; // Dold på desktop
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: base.$color-text; 
+}
 //Inheritance mall för knappar
 
 %button-style {
@@ -31,13 +38,37 @@
     text-align: center;
   }
 
-.recipeCard img {
+  .recipeCard {
+    background-color: base.$color-bg;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 1s ease-in-out; //Transition på 1 sekund
+
+    &:hover {
+      transform: scale(1.18) //Vid hoover zoomas bilden in
+    }
+    
+  
+h3 {
+  font-family: base.$font-stack;
+  font-weight: normal; 
+}
+img {
 @include base.standard-image();
 
-  
-//&:hover {
-   
 } 
+
+.card-body { /*utan reglerna här hamnade knapparna i olika höjd beroende på receptets namn*/
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+}
+  }
 
 
 
@@ -72,7 +103,73 @@ footer {
 }
 
 @media (max-width: 900px) {
-}
+  /* Header och hamburgermeny */
+  header {
+    flex-wrap: wrap;
+    padding: 1rem 1.25rem; 
+  }
+  
+  .hamburger {
+    display: block !important; 
+  }
+  
+  /* Göm menyn tills man klickar */
+  #nav-meny {
+    display: none !important;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    margin-left: 0; 
+    
+  }
+  
+  #nav-meny.active {
+    display: flex !important;
+  }
+  
+   #nav-meny a {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    width: 100%;
+    text-align: center;
+    
+  }
+
+  #recipeHome {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /*två kolumner tablet*/
+  }
+
+  .search-section {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    text-align: center;     
+    padding: 2rem 1rem;     
+  }
+
+  .search-section input {
+    width: 100%;            // Gör inputen bredare för bättre mobilvänlighet
+    max-width: 300px;       
+    margin-bottom: 1rem;   
+  }
+
+  #searchBtn {
+    width: 100%;            // Knappen blir lika bred som inputfältet
+    max-width: 300px;
+  }
+
+  /* Footer staplas */
+  footer {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  .min-logga {
+    width: 12rem;
+  } };
+
  
 
 @media (max-width: 768px) {
@@ -84,12 +181,12 @@ footer {
   }
   
   .hamburger {
-    display: block; 
+    display: block !important; 
   }
   
   /* Göm menyn tills man klickar */
-  nav {
-    display: none;
+  #nav-meny {
+    display: none !important;
     width: 100%;
     flex-direction: column;
     gap: 0;
@@ -97,11 +194,11 @@ footer {
     
   }
   
-  nav.active {
-    display: flex;
+  #nav-meny.active {
+    display: flex !important;
   }
   
-  nav a {
+   #nav-meny a {
     padding: 1rem;
     border-bottom: 1px solid rgba(255,255,255,0.2);
     width: 100%;
@@ -109,6 +206,29 @@ footer {
     
   }
 
+  #recipeHome {
+    display: grid;
+    grid-template-columns: 1fr; /*1 kolumn mobil*/
+  }
+
+  .search-section {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    text-align: center;     
+    padding: 2rem 1rem;     
+  }
+
+  .search-section input {
+    width: 100%;            // Gör inputen bredare för bättre mobilvänlighet
+    max-width: 300px;       
+    margin-bottom: 1rem;   
+  }
+
+  #searchBtn {
+    width: 100%;            // Knappen blir lika bred som inputfältet
+    max-width: 300px;
+  }
 
   /* Footer staplas */
   footer {
@@ -119,6 +239,5 @@ footer {
   }
   .min-logga {
     width: 12rem;
-  }
-}
-;
+  } };
+
