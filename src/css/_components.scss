@@ -51,7 +51,7 @@ a {
   font-weight: normal;
   
   &:hover {
-    background-color: darken(base.$color-Btn, 10%);
+    background-color: color.scale(base.$color-Btn, $lightness: -10.9913793103%)
   }
 }
 
@@ -61,7 +61,7 @@ a {
   display: inline-block;
   background-color: base.$color-Btn;
   color: base.$color-text;
-  background-color: darken(base.$color-Btn, 10%);
+  background-color: color.scale(base.$color-Btn, $lightness: -10.9913793103%)
 }
 
 

@@ -21,8 +21,9 @@ let allDesserts = []; //Skapar variabel för att lagra alla desserter från API 
 
 async function loadData(query) {
   //Funktion som heter data i ett JSON-format som görs om till ett JavaScript objekt
-  const apiKey = "9d96e24944c74de4a2514d8f5049c38c";
-  const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${query}&number=50&addRecipeInformation=true`; //Min URL där jag vill ha sökord från användaren och hämta 50 resultat i taget.
+  const apiKey = "9d96e24944c74de4a2514d8f5049c38c"; //API nyckel spoonacular som hämtar recept
+  const nutritionApiKey = "10NQQGJGqCi6AWshrxFL48Em1Si07Wb2K330gmv8"; //API nyckel för näringsvärde
+  const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${query}&number=10&addRecipeInformation=true`; //Min URL där jag vill ha sökord från användaren och hämta 50 resultat i taget.
 
   try {
     const response = await fetch(url);
@@ -33,6 +34,23 @@ async function loadData(query) {
     allDesserts.sort((a, b) => {
       return a.title.localeCompare(b.title);
     });
+
+    for (let recipe of allDesserts) {
+      const nutritionUrl = `https://api.api-ninjas.com/v1/nutrition?query=${recipe.title}`; //Skapar en länk med receptets titel för att söka efter näringsvärde
+
+      const nutritionResponse = await fetch(nutritionUrl, {
+        //Skickar frågan med min API-nyckel och väntar på svar
+        headers: { "X-Api-Key": nutritionApiKey },
+      });
+      const nutritionData = await nutritionResponse.json(); //Konverterar svaret till JSON-format
+
+      if (nutritionData && nutritionData.length > 0) {
+        // Kollar om vi får tillbaka ett svar
+        recipe.calories = nutritionData[0].calories; //Sparar kalorierna på aktuellt recept
+      } else {
+        recipe.calories = "Okänt"; //Om inget värde hittas spara som okänt
+      }
+    }
 
     displayDesserts(allDesserts);
   } catch (error) {
@@ -64,6 +82,7 @@ function displayDesserts(recipes) {
       <img src="${recipe.image}" alt="${recipe.title}">
       <div class="card-body">
         <h3>${recipe.title}</h3>
+        <p>Kalorier: <strong>${recipe.calories}</strong></p> 
         <a href="${recipe.sourceUrl}" target="_blank" class="recipe-btn"> 
           Visa recept
         </a>
