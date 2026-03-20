@@ -61,7 +61,15 @@ a {
   display: inline-block;
   background-color: base.$color-Btn;
   color: base.$color-text;
-  background-color: color.scale(base.$color-Btn, $lightness: -10.9913793103%)
+  background-color: color.scale(base.$color-Btn, $lightness: -10.9913793103%);
+  transition: all 0.3s ease-in-out; //tiden för animationen
+
+  &:hover {
+    background-color: color.adjust(base.$color-Btn, $lightness: 2%);  //justerar färgen till 2% ljusare
+    transform: translateY(-2px); //Flyttar knappen två pixlar uppåt
+  
+  }
 }
+
 
 

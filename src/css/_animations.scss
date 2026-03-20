@@ -1,9 +1,10 @@
-@keyframes photoMove { //Skapar animation så min minion rör sig över skärmen
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(30px, -10px); }
-  50%  { transform: translate(15px, 20px); }
-  75%  { transform: translate(-20px, 10px); }
-  100% { transform: translate(0, 0); 
+@keyframes fadeIn {
+  from {
+    opacity: 0;            // Helt genomskinlig
+    transform: translateY(20px); // Startar 20px längre ner
+  }
+  to {
+    opacity: 1;            // Helt synlig
+    transform: translateY(0);    // Landar på rätt plats
   }
 }
-
