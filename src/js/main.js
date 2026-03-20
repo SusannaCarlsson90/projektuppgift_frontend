@@ -43,12 +43,18 @@ async function loadData(query) {
         headers: { "X-Api-Key": nutritionApiKey },
       });
       const nutritionData = await nutritionResponse.json(); //Konverterar svaret till JSON-format
+      console.log(nutritionData); //Kollar vilka värden jag kan få ut eftersom jag ej fick ut kalorier och protein
 
       if (nutritionData && nutritionData.length > 0) {
+        const n = nutritionData[0];
         // Kollar om vi får tillbaka ett svar
-        recipe.calories = nutritionData[0].calories; //Sparar kalorierna på aktuellt recept
+        recipe.fat = n.fat_total_g;
+        recipe.carbs = n.carbohydrates_total_g;
+        recipe.sugar = n.sugar_g;
       } else {
-        recipe.calories = "Okänt"; //Om inget värde hittas spara som okänt
+        recipe.fat = "0";
+        recipe.carbs = "0";
+        recipe.sugar = "0";
       }
     }
 
@@ -82,7 +88,9 @@ function displayDesserts(recipes) {
       <img src="${recipe.image}" alt="${recipe.title}">
       <div class="card-body">
         <h3>${recipe.title}</h3>
-        <p>Kalorier: <strong>${recipe.calories}</strong></p> 
+        <p>Fett: ${recipe.fat}g</p>
+        <p>Kolhydrater: ${recipe.carbs}g</p>
+        <p>Socker: ${recipe.sugar}g</p>
         <a href="${recipe.sourceUrl}" target="_blank" class="recipe-btn"> 
           Visa recept
         </a>
