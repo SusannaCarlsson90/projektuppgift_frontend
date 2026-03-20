@@ -29,6 +29,10 @@ async function loadData(query) {
     const response = await fetch(url);
     const data = await response.json(); //Packar upp "paketet" från servern
     allDesserts = data.results; //Sparar receptlistan i min globala variabel
+    if (allDesserts.length === 0) {
+      recipeHome.innerHTML = `<p class="no-results">Tyvärr hittades inga recept på "${query}". Testa något annat!</p>`;
+      return; // Avbryt funktionen här
+    }
 
     // Sortering bokstavsordning a-ö
     allDesserts.sort((a, b) => {
