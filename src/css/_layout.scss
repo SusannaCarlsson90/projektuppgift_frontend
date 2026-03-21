@@ -246,7 +246,10 @@ footer {
     text-align: center;
     
   }
-
+.favorit-grid {
+  grid-template-columns: 1fr;
+  
+}
   #recipeHome {
     display: grid;
     grid-template-columns: 1fr; /*1 kolumn mobil*/
