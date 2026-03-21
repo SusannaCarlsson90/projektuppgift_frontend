@@ -1,38 +1,17 @@
-Laboration 5
+Om detta projekt
 
-Länk till min publicerade sida:
+Länk till hemsida: https://projektuppgift-frontend.onrender.com/index.html
 
-https://labb-3.onrender.com/
+Välkommen till Receptinspo – din digitala guide till smartare bakning och matlagning!
 
-I den här uppgiften har jag skapat två sidor under flikarna "Karta" och "Diagram, som hämtar och presenterar data på två olika sätt.
+Den här webbapplikationen skapade jag med mig själv i åtanke. Jag älskar att baka men gillar också att ha lite koll på vad jag stoppar i mig. Med denna webbapplikation kan man söka både på recept men samtidigt också få näringsvärde uppladdat samtidigt.
 
-Detta har jag gjort:
+Hur fungerar det?
+Receptinspo är en så kallad Mashup-applikation. Det betyder att den automatiskt hämtar information från två olika källor på internet och sammanfogar dem till en helt ny tjänst:
 
-Hämtat och sorterat statistik: Jag har skrivit en funktion som hämtar aktuell utbildningsstatistik från en extern JSON-fil med hjälp av fetch. Jag har sedan filtrerat och sorterat ut de mest sökta kurserna och programmen för att få fram rätt data.
+Recepten: Hämtas live från Spoonacular API, en av världens största databaser för recept och matlagning.
+Näringen: Varje gång du gör en sökning skickas receptets titel vidare till API Ninjas Nutrition. Där analyseras innehållet för att ge dig realtidsinformation om fett, kolhydrater och socker. Dessvärre saknar gratisversionen hos detta API kalorier och protein - vilket är något jag gärna hade haft med.
+Tekniken bakom
+Sidan är byggd med moderna verktyg för att säkerställa hög prestanda och en bra användarupplevelse:
 
-"Redovisat" med diagram: För att göra siffrorna lättare att förstå har jag använt biblioteket Chart.js. Jag har skapat ett stapeldiagram för kurser och ett cirkeldiagram för program, där jag kopplat JavaScript-koden till <canvas>-element i min HTML.
-
-Skapat en interaktiv karta: Jag har byggt en sökfunktion där användaren kan skriva in en plats. Genom att skicka sökordet till Nominatim API hämtar jag koordinater (latitud och longitud) som jag sedan använder för att uppdatera min karta.
-
-Dokumentation: Jag har använt JSDoc för att dokumentera mina funktioner.
-
-Laboration 3 och 4
-
-(Laboration 3)
-I denna laboration har jag fokuserat på att lära mig SASS:
-
-Exempel på saker jag gjort:
-
-Använt @use för att dela upp koden i bland annat \_base.scss, \_layout.scss och \_animations.scss.
-Använt %card-style och %button-style för att återanvända kod på ett effektivt sätt.
-Skapat egna mixins för att hantera bilder och logik för t.ex. runda hörn.
-Lagrat färger och typsnitt i variabler
-
-(Laboration 4)
-Jag har skapat tre olika typer av animationer:
-
-Rörliga objekt: En Minion-bild som rör sig i ett svävande mönster med hjälp av @keyframes och transform: translate.
-
-Bildanimation (Hover): Fotogalleriet använder transform: scale och transition för att skapa en mjuk inzoomningseffekt när användaren håller musen över bilderna.
-
-Användarinteraktion: En "Konfetti-knapp" som triggar ett konfettiregn. Detta är byggt med JavaScript som kommunicerar med biblioteket canvas-confetti.
+Genom att använda SASS/SCSS har jag skapat en responsiv design som fungerar lika bra på mobilen som på datorn. All logik bygger på asynkron JavaScript för att hämta data snabbt utan att sidan behöver laddas om, och projektet är optimerat med Vite och Node.js.
