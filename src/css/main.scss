@@ -65,6 +65,10 @@ main {
   
     nav a {
       color: base.$color-dark-text;
+
+      &:hover {
+        color: #FFFBF5; 
+      }
     }
     
     .hamburger {

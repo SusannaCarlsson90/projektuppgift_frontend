@@ -13,10 +13,14 @@ a {
   color: base.$color-text;
   text-decoration: none;
   font-size: 1.1rem;
+  display: inline-block;
+  transition: transform 2s ease, color 2s ease; //mjuk inzoomning
   
 &:hover {
   text-decoration: underline;
   color: color.scale(base.$color-text, $lightness: 20%); //color functions lighten
+  transform: scale(1.5); //inzomning 5% vid hover
+  
  
 }
 

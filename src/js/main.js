@@ -105,26 +105,38 @@ function displayDesserts(recipes) {
   });
 }
 
-searchBtn.addEventListener("click", () => {
-  //eventlyssnare vid klick på sökknappen
-  const query = inputText.value;
+// Funktion för konfetti
+function skjutKonfetti() {
+  if (typeof confetti === "function") {
+    confetti({
+      particleCount: 300,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ["#f093fb", "#f5576c", "#ffffff"],
+    });
+  }
+}
 
+// Klick lyssnare
+searchBtn.addEventListener("click", () => {
+  const query = inputText.value;
   if (query !== "") {
-    //Om sökfältet inte är tomt kör loadData
+    skjutKonfetti();
     loadData(query);
   } else {
-    alert("Du måste skriva något att söka efter"); //Annars kör popupruta med denna text
+    alert("Du måste skriva något att söka efter");
   }
 });
 
+// Enter lyssnare
 inputText.addEventListener("keydown", (event) => {
-  //eventlyssnare vid tryck på enter
   if (event.key === "Enter") {
     const query = inputText.value;
     if (query !== "") {
-      loadData(query); //Om inputvärdet från användaren inte är tomt kör loadData
+      skjutKonfetti();
+      loadData(query);
     } else {
-      alert("Du måste skriva något att söka efter"); //Annars popupruta med texten
+      alert("Du måste skriva något att söka efter");
     }
   }
 });

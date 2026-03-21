@@ -44,8 +44,12 @@ max-width: 900px;
     height: auto;
     max-width: 150px;
     display: block;
-    
-  }
+    transition: transform 1s ease;
+
+    &:hover {
+      transform: scale(1.1) translateY(-10px);
+    }
+}
 }
 
 .baklänk {
