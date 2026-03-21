@@ -45,6 +45,7 @@
     flex-direction: column;
     height: 100%;
     transition: transform 1s ease-in-out; //Transition på 1 sekund
+    animation: fadeIn 0.5s ease-out forwards; //Animationen tar 0.5s, easeout-bromsar in mjukt. Forwards = Fortätt vara synlig när animationen är klar.
 
     &:hover {
       transform: scale(1.18) //Vid hoover zoomas bilden in

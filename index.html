@@ -25,6 +25,7 @@
     
     <nav id="nav-meny">
       <a href="/index.html" class="active">Hem</a>
+      <a href="/bonus.html">Bonus</a>
       <a href="/om.html">Om</a>
       
     </nav>
@@ -40,16 +41,46 @@
 
   <main>
 
-    
+    <h2>På denna sida kan du söka efter recept och samtidigt få näringsvärdet uträknat!</h2>
       <section class="search-section">
           <h2>Sök efter bakverk</h2>
-          <p>Hitta receptet och se näringsinnehåll!</p>
+          <p>Hitta receptet och se näringsvärdet!</p>
           
           <input type="text" id="recipeSearch" placeholder="Skriv ex. Brownies">
           <button id="searchBtn">Hitta recept</button>
       </section>
 
   <div id="recipeHome" class="recipeGrid"></div>
+
+  <section class="favoriter">
+    <h2>Mina favoritrecept!</h2>
+    <p>Klicka på en ikon och kom direkt till mina favoritbakverk - utan näringsvärde men succé på fikabordet!</p>
+    
+    <div class="favorit-grid">
+      
+      <a href="https://mykitchenstories.se/knackig-appelpaj/" target="_blank" class="baklänk">
+        <div class="ikon-container">
+          <img src="/paj.png" alt="Äppelpaj">
+        </div>
+        <p>Knäckig äppelpaj</p>
+      </a>
+      
+      <a href="https://mykitchenstories.se/saftiga-barmuffins-med-vaniljkramsgomma-och-knackigt-havresmul/" target="_blank" class="baklänk">
+        <div class="ikon-container">
+          <img src="/muffins.png" alt="Muffins">
+        </div>
+        <p>Bärmuffins med vaniljkrämsgömma och knäckigt havresmul</p>
+      </a>
+      
+      <a href="https://www.ica.se/recept/chocolate-chip-cookies-728944/" target="_blank" class="baklänk">
+        <div class="ikon-container">
+          <img src="/cookie.png" alt="Chocolate chip cookies">
+        </div>
+        <p class="tips">Klassiska chocolate chip cookies</p>
+      </a>
+      
+    </div>
+    </section>
   
 </main>
 

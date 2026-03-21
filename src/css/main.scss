@@ -1,3 +1,5 @@
+@use 'icons';
+
 @use 'base';
 
 @use 'components';
@@ -30,7 +32,19 @@ body {
   color: base.$color-text;            
   font-family: base.$font-stack;
   margin: 0;
+
+  h2 {
+font-size: 30px;
+margin: 0;
+text-align: center;
+padding: 5%;
+  }
+
+
+ 
 }
+
+
 main {
   background-color: base.$color-main; 
   color: base.$color-text;
