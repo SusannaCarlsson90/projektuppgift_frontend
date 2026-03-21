@@ -28,6 +28,26 @@
     padding: 1rem;
   }
 
+  .search-section {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    text-align: center;     
+    padding: 2rem 1rem;     
+  }
+
+  .search-section input {
+    width: 100%;            // Gör inputen bredare för bättre mobilvänlighet
+    max-width: 300px;       
+    margin-bottom: 1rem;   
+   
+  }
+
+  #searchBtn {
+    width: 70%;            // Knappen blir lika bred som inputfältet
+    max-width: 200px;
+  }
+
   #recipeHome {
     display: grid;
     grid-template-columns: repeat(3, 1fr); //3 kolumner desktop vy
@@ -71,19 +91,19 @@ img {
 }
   }
 
-
-
-
-
 header {
   background-color: base.$color-header;
   padding: 1.25rem 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem; 
+  }
 }
-
-
 
 footer {
   padding: 1.89rem 2.5rem;
@@ -158,6 +178,7 @@ footer {
     width: 100%;            // Gör inputen bredare för bättre mobilvänlighet
     max-width: 300px;       
     margin-bottom: 1rem;   
+   
   }
 
   #searchBtn {
