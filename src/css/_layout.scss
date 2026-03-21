@@ -20,6 +20,8 @@
   cursor: pointer;
   }
 
+  
+
   .info-boxes {
     display: grid;
     grid-template-columns: repeat(3, 1fr); // Tre kolumner
@@ -126,6 +128,7 @@ footer {
 @media (max-width: 900px) {
 .hero-content {
   font-size: 20px;
+  margin-top: -440px; //Höjer uppåt för ökad läsbarhet
   
   
 }
@@ -200,10 +203,17 @@ footer {
  
 
 @media (max-width: 768px) {
-  
+  .ikonHeader {
+    display: none;
+  }
+
+  .ikon-sektion {
+    display: none;
+  }
   .hero-content {
     font-size: 20px;
     max-width: 90%;
+    margin-top: -450px; //Höjer texten pga. svårläst i annars
   }
   /* Header och hamburgermeny */
   header {
