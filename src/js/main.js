@@ -105,7 +105,7 @@ function displayDesserts(recipes) {
   });
 }
 
-// Funktion för konfetti
+////Konfettiknapp från youtube, har modifierat och förenklat koden till min nybörjarnivå: https://www.youtube.com/watch?v=H3CqghZkHm8
 function skjutKonfetti() {
   if (typeof confetti === "function") {
     confetti({
