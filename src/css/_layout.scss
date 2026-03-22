@@ -39,14 +39,14 @@
   }
 
   .search-section input {
-    width: 100%;            // Gör inputen bredare för bättre mobilvänlighet
+    width: 100%;            
     max-width: 300px;       
     margin-bottom: 1rem;   
    
   }
 
   #searchBtn {
-    width: 70%;            // Knappen blir lika bred som inputfältet
+    width: 70%;            
     max-width: 200px;
   }
 
@@ -213,7 +213,7 @@ footer {
   .hero-content {
     font-size: 20px;
     max-width: 90%;
-    margin-top: -450px; //Höjer texten pga. svårläst i annars
+    margin-top: -450px; //Höjer texten pga. svårläst annars
   }
   /* Header och hamburgermeny */
   header {

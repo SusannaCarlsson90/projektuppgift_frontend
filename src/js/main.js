@@ -23,7 +23,7 @@ async function loadData(query) {
   //Funktion som heter data i ett JSON-format som görs om till ett JavaScript objekt
   const apiKey = "9d96e24944c74de4a2514d8f5049c38c"; //API nyckel spoonacular som hämtar recept
   const nutritionApiKey = "10NQQGJGqCi6AWshrxFL48Em1Si07Wb2K330gmv8"; //API nyckel för näringsvärde
-  const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${query}&number=10&addRecipeInformation=true`; //Min URL där jag vill ha sökord från användaren och hämta 50 resultat i taget.
+  const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${query}&number=10&addRecipeInformation=true`; //Min URL där jag vill ha sökord från användaren och hämta 10 resultat i taget.
 
   try {
     const response = await fetch(url);
@@ -47,7 +47,6 @@ async function loadData(query) {
         headers: { "X-Api-Key": nutritionApiKey },
       });
       const nutritionData = await nutritionResponse.json(); //Konverterar svaret till JSON-format
-      console.log(nutritionData); //Kollar vilka värden jag kan få ut eftersom jag ej fick ut kalorier och protein
 
       if (nutritionData && nutritionData.length > 0) {
         const n = nutritionData[0];

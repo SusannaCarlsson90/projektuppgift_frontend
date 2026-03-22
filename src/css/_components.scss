@@ -8,20 +8,22 @@
 nav { 
   display: flex;
   gap: 1.8rem;
+  position: relative; //Försöker få fram min cursor pointer
+  z-index: 999; //Försöker få fram min cursor pointer
  
 a {
   color: base.$color-text;
   text-decoration: none;
   font-size: 1.1rem;
   display: inline-block;
-  transition: transform 2s ease, color 2s ease; //mjuk inzoomning
+  transition: transform 1s ease, color 1s ease; //mjuk inzoomning under 1sekund
+  cursor: pointer !important;
   
 &:hover {
   text-decoration: underline;
-  color: color.scale(base.$color-text, $lightness: 20%); //color functions lighten
-  transform: scale(1.5); //inzomning 5% vid hover
+  color: color.scale(base.$color-text, $lightness: 20%); 
+  transform: scale(1.5); //inzoomning 5% vid hover
   
- 
 }
 
 &.active {
@@ -50,9 +52,12 @@ a {
   background-color: base.$color-Btn;
   color: base.$color-text;
   font-weight: normal;
+  cursor: pointer !important;
+  
   
   &:hover {
-    background-color: color.scale(base.$color-Btn, $lightness: -10.9913793103%)
+    background-color: color.scale(base.$color-Btn, $lightness: -10.9913793103%); //Mörkare vid hover
+    
   }
 }
 
@@ -62,11 +67,11 @@ a {
   display: inline-block;
   background-color: base.$color-Btn;
   color: base.$color-text;
-  background-color: color.scale(base.$color-Btn, $lightness: -10.9913793103%);
   transition: all 0.3s ease-in-out; //tiden för animationen
+  cursor: pointer !important;
 
   &:hover {
-    background-color: color.adjust(base.$color-Btn, $lightness: 2%);  //justerar färgen till 2% ljusare
+    background-color: color.scale(base.$color-Btn, $lightness: -10.9913793103%); //Mörkare vid hover
     transform: translateY(-2px); //Flyttar knappen två pixlar uppåt
   
   }
